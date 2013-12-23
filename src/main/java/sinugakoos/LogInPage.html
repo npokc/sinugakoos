@@ -12,7 +12,12 @@
 			</div>
 		</div>
 		<div id="bd">
-			<h2>WELCOME!</h2>
+            <form wicket:id="logInForm">
+                Username : <input type="text" wicket:id="username"/>
+                Password : <input type="password" wicket:id="password"/>
+                <input type="submit" value="click me to submit the form and display a message" />
+            </form>
+            <span wicket:id="feedback">feedbackmessages will be put here</span>
 		</div>
 		<div id="ft">
 		</div>

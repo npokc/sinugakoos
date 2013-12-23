@@ -13,16 +13,16 @@ public class LogInPage extends WebPage {
 
     public LogInPage() {
         add(new FeedbackPanel("feedback"));
-        add(new SignInForm("signInForm"));
+        add(new LogInForm("logInForm"));
     }
 
-    public final class SignInForm extends Form<Void> {
+    public final class LogInForm extends Form<Void> {
         private static final String USERNAME = "username";
         private static final String PASSWORD = "password";
 
         private final ValueMap properties = new ValueMap();
 
-        public SignInForm(final String id) {
+        public LogInForm(final String id) {
             super(id);
 
             add(new TextField<String>(USERNAME, new PropertyModel<String>(properties, USERNAME)));
