@@ -16,12 +16,12 @@ import org.apache.wicket.request.resource.IResource;
 
 public class WicketApplication extends WebApplication {
     public Class<? extends WebPage> getHomePage() {
-        return LogInPage.class;
+        return HomePage.class;
     }
 
     @Override
     public Session newSession(Request request, Response response) {
-        return new SignInSession(request);
+        return new WicketSession(request);
     }
 
     @Override
@@ -42,10 +42,10 @@ public class WicketApplication extends WebApplication {
                     Class<T> componentClass) {
 
                 if (AuthenticatedWebPage.class.isAssignableFrom(componentClass)) {
-                    if (((SignInSession) Session.get()).isSignedIn()) {
+                    if (((WicketSession) Session.get()).isSignedIn()) {
                         return true;
                     }
-                    throw new RestartResponseAtInterceptPageException(SignInPage.class);
+                    throw new RestartResponseAtInterceptPageException(LogInPage.class);
                 }
                 return true;
             }

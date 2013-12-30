@@ -1,4 +1,4 @@
 package sinugakoos;
 
-public class AuthenticatedWebPage {
+public interface AuthenticatedWebPage {
 }

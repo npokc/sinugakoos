@@ -25,14 +25,14 @@ public class LogInPage extends WebPage {
         public LogInForm(final String id) {
             super(id);
 
-            add(new TextField<String>(USERNAME, new PropertyModel<String>(properties, USERNAME)));
+            add(new TextField(USERNAME, new PropertyModel<String>(properties, USERNAME)));
             add(new PasswordTextField(PASSWORD, new PropertyModel<String>(properties, PASSWORD)));
         }
 
         @Override
         public final void onSubmit() {
 
-            SignInSession session = getMySession();
+            WicketSession session = getMySession();
 
             if (session.signIn(getUsername(), getPassword())) {
                 setResponsePage(getApplication().getHomePage());
@@ -50,8 +50,8 @@ public class LogInPage extends WebPage {
             return properties.getString(USERNAME);
         }
 
-        private SignInSession getMySession() {
-            return (SignInSession) getSession();
+        private WicketSession getMySession() {
+            return (WicketSession) getSession();
         }
     }
 }
