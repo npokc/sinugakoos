@@ -5,7 +5,6 @@ import org.apache.wicket.RestartResponseAtInterceptPageException;
 import org.apache.wicket.Session;
 import org.apache.wicket.authorization.Action;
 import org.apache.wicket.authorization.IAuthorizationStrategy;
-import org.apache.wicket.authroles.authentication.pages.SignInPage;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.request.Request;
@@ -27,6 +26,9 @@ public class WicketApplication extends WebApplication {
     @Override
     public void init() {
         super.init();
+
+        mountPage("/login", LogInPage.class);
+        mountPage("/logout", LogOutPage.class);
 
         getSecuritySettings().setAuthorizationStrategy(new IAuthorizationStrategy() {
             public boolean isActionAuthorized(Component component, Action action) {
